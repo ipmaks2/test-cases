@@ -40,7 +40,6 @@ def main():
 # the program.
 if __name__ == '__main__':
   main()
-  help(sys)
   sys.exit(0)
 
 
