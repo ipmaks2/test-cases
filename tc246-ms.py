@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 
+# todo #4  merge with 3 previous todos
 
 def main():
   f = open(sys.argv[1],'r')
