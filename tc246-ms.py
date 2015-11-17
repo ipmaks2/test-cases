@@ -1,9 +1,12 @@
 #!/usr/bin/python
 import sys
 
+
 # Todo #0 - formatting and description in Output
 # Todo #1 - add reading from Console txt file, i mean auto search of PD tables and printing statistics
 # TODO #2 - add statistics according to different disk TYPEs
+# todo #4  merge with 3 previous todos
+
 
 def main():
   if len(sys.argv)<2:
