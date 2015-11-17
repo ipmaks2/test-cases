@@ -1,9 +1,21 @@
 #!/usr/bin/python
 import sys
 
+# Todo #0 - formatting and description in Output
+# Todo #1 - add reading from Console txt file, i mean auto search of PD tables and printing statistics
+# TODO #2 - add statistics according to different disk TYPEs
 
 def main():
-  f = open(sys.argv[1],'r')
+  if len(sys.argv)<2:
+    print(' No Filename in parameters.')
+    sys.exit(1)
+  
+  try:
+    f = open(sys.argv[1],'r')
+  except IOError:
+    sys.stderr.write('Error opening file: ' + sys.argv[1])
+    sys.exit(1)
+
   zone1 = ('1','2','3','4','5','6',
            '13','14','15','16','17','18',
            '25','26','27','28','29','30',
@@ -22,7 +34,7 @@ def main():
 
     if curpool !=pool:
       curpool = pool
-      pzones.append( [0,0,0,0,0,0,0,0,0,0])
+      pzones.append( [0,0,0,0,0,0,0,0,0,0,'This row for Pool-%d' % (pool)])
 
     if pd[1] in zone1:
       zone=1 
@@ -30,7 +42,8 @@ def main():
       zone=0  
 
     pzones[pool][(encl-1)*2+zone] +=1
-                            
+
+  print ( "Statistics for disk distribution in Zones: ") 
   for zone in pzones:
    print(  zone)
 
@@ -40,7 +53,6 @@ def main():
 # the program.
 if __name__ == '__main__':
   main()
-  help(sys)
   sys.exit(0)
 
 
